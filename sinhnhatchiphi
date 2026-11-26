@@ -1,0 +1,1151 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Phí Phương Anh | The Wishing Tree</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --lavender: #cdb8e8;
+  --purple: #9875bd;
+  --purple-dark: #8063a5;
+  --purple-light: #eadcf8;
+  --cream: #fff9ff;
+  --green: #82977f;
+  --dark: #51465f;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Quicksand', sans-serif;
+  background: #faf6ff;
+  color: var(--dark);
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+.background {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(circle at 15% 20%, #eadcf8 0, transparent 30%),
+    radial-gradient(circle at 85% 75%, #e4e9dc 0, transparent 30%),
+    #faf6ff;
+}
+
+.sparkle {
+  position: fixed;
+  color: #b99bdc;
+  animation: float 5s infinite ease-in-out;
+  pointer-events: none;
+  z-index: 1;
+}
+
+@keyframes float {
+  0%,100% { transform: translateY(0) rotate(0); }
+  50% { transform: translateY(-18px) rotate(15deg); }
+}
+
+.screen {
+  position: relative;
+  z-index: 2;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 35px 15px;
+  text-align: center;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.small-title {
+  font-size: 12px;
+  letter-spacing: 4px;
+  color: var(--purple-dark);
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(35px, 6vw, 65px);
+  color: var(--purple-dark);
+  font-weight: 500;
+}
+
+.subtitle {
+  margin-top: 15px;
+  color: #8c817b;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+/* =================================
+   GIFT BOX
+================================= */
+
+.gift-area {
+  margin: 65px auto 35px;
+  cursor: pointer;
+  position: relative;
+  width: 180px;
+  height: 175px;
+  transition: transform .3s;
+  animation: giftFloat 3s ease-in-out infinite;
+}
+
+.gift-area:hover {
+  transform: scale(1.07);
+}
+
+@keyframes giftFloat {
+  0%,100% { translate: 0 0; }
+  50% { translate: 0 -8px; }
+}
+
+.gift-box {
+  position: absolute;
+  bottom: 0;
+  width: 180px;
+  height: 120px;
+  background: #b99bdc;
+  border-radius: 8px;
+  box-shadow: 0 15px 25px #9b7bb830;
+}
+
+.gift-box::before {
+  content: "";
+  position: absolute;
+  left: 70px;
+  width: 38px;
+  height: 100%;
+  background: #f8efff;
+}
+
+.gift-lid {
+  position: absolute;
+  top: 43px;
+  left: -10px;
+  width: 200px;
+  height: 33px;
+  background: #9875bd;
+  border-radius: 6px;
+  z-index: 2;
+  transition: .8s;
+}
+
+.gift-lid::before {
+  content: "";
+  position: absolute;
+  left: 81px;
+  width: 38px;
+  height: 100%;
+  background: #f8efff;
+}
+
+.bow {
+  position: absolute;
+  top: 5px;
+
+  /* Căn chính giữa hộp quà */
+  left: 50%;
+  transform: translateX(-50%);
+
+  width: 50px;
+  height: 40px;
+  z-index: 3;
+}
+
+.bow::before,
+.bow::after {
+  content: "";
+  position: absolute;
+
+  width: 27px;
+  height: 28px;
+
+  border: 7px solid #8063a5;
+  border-radius: 50% 50% 0 50%;
+}
+
+.bow::before {
+  left: 0;
+  transform: rotate(35deg);
+}
+
+.bow::after {
+  right: 0;
+  transform: scaleX(-1) rotate(35deg);
+}
+
+.gift-open .gift-lid {
+  transform: translateY(-100px) rotate(-15deg);
+  opacity: 0;
+}
+
+.open-text {
+  color: var(--purple-dark);
+  font-weight: 700;
+  font-size: 14px;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  50% { opacity: .5; }
+}
+
+/* =================================
+   TREE SCREEN
+================================= */
+
+#treeScreen {
+  padding-top: 35px;
+  padding-bottom: 60px;
+}
+
+.tree-heading {
+  margin-bottom: 8px;
+}
+
+.tree-heading h1 {
+  font-size: clamp(32px, 5vw, 50px);
+}
+
+.tree-heading p {
+  font-size: 13px;
+  color: #998a9f;
+  margin-top: 10px;
+  line-height: 1.8;
+}
+
+/* =================================
+   TREE STRUCTURE
+================================= */
+
+.tree-container {
+  position: relative;
+  width: min(95vw, 560px);
+  height: 650px;
+  margin: 15px auto 0;
+}
+
+.tree {
+  position: absolute;
+  left: 50%;
+  top: 45px;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+
+  border-left: 220px solid transparent;
+  border-right: 220px solid transparent;
+  border-bottom: 510px solid #8eae8c;
+
+  filter: drop-shadow(0 8px 5px #67876b22);
+}
+
+.tree::before {
+  content: "";
+  position: absolute;
+  top: 125px;
+  left: -165px;
+
+  border-left: 165px solid transparent;
+  border-right: 165px solid transparent;
+  border-bottom: 370px solid #719977;
+}
+
+.tree::after {
+  content: "";
+  position: absolute;
+  top: 245px;
+  left: -105px;
+
+  border-left: 105px solid transparent;
+  border-right: 105px solid transparent;
+  border-bottom: 250px solid #638c70;
+}
+
+.trunk {
+  position: absolute;
+  top: 545px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 48px;
+  height: 65px;
+  background: #a97c62;
+  border-radius: 5px;
+  z-index: 1;
+}
+
+.star {
+  position: absolute;
+  z-index: 3;
+  top: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 45px;
+  color: #e9c77d;
+  filter: drop-shadow(0 2px 8px #e9b85f80);
+  animation: twinkle 2s infinite;
+}
+
+@keyframes twinkle {
+  50% {
+    transform: translateX(-50%) scale(1.2);
+  }
+}
+
+/* =================================
+   42 CAMERA ORNAMENTS
+================================= */
+
+.wishes-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+}
+
+/* Camera placement uses CENTER alignment */
+
+.ornament {
+  position: absolute;
+  width: 34px;
+  height: 55px;
+  cursor: pointer;
+
+  transform: translateX(-50%);
+  transform-origin: top center;
+
+  animation: swing 3s ease-in-out infinite;
+  transition: transform .3s;
+  z-index: 5;
+}
+
+.ornament:hover {
+  transform: translateX(-50%) scale(1.2);
+  z-index: 10;
+}
+
+@keyframes swing {
+  0%,100% { rotate: -4deg; }
+  50% { rotate: 4deg; }
+}
+
+/* Hook at the tree canopy */
+
+.hook {
+  position: absolute;
+  top: -27px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+
+  background: #e9c77d;
+  border: 1px solid #fff4d9;
+  z-index: 2;
+}
+
+/* String connected to the camera */
+
+.string {
+  position: absolute;
+  left: 50%;
+  top: -23px;
+  transform: translateX(-50%);
+
+  width: 2px;
+  height: 25px;
+
+  background: #e5c9a7;
+  border-radius: 2px;
+  z-index: 1;
+}
+
+/* Camera body */
+
+.camera {
+  position: relative;
+  width: 34px;
+  height: 27px;
+  margin-top: 0;
+
+  border-radius: 7px;
+  background: #cdb8e8;
+  border: 2px solid #fff;
+
+  box-shadow: 0 3px 9px #00000020;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  transition: .25s;
+}
+
+/* Camera top */
+
+.camera::before {
+  content: "";
+  position: absolute;
+
+  width: 12px;
+  height: 5px;
+
+  background: inherit;
+  border: 1px solid #fff;
+  border-bottom: none;
+
+  border-radius: 4px 4px 0 0;
+
+  top: -6px;
+  left: 8px;
+}
+
+/* Camera lens */
+
+.camera-lens {
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+
+  background: #fff;
+  border: 3px solid #8063a5;
+
+  box-shadow: inset 0 0 0 2px #d7c4ed;
+}
+
+/* Camera flash */
+
+.camera-flash {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+
+  background: #fff6d9;
+  border-radius: 50%;
+
+  right: 4px;
+  top: 5px;
+}
+
+/* Alternating camera colors */
+
+.ornament:nth-child(3n+1) .camera {
+  background: #cdb8e8;
+}
+
+.ornament:nth-child(3n+2) .camera {
+  background: #e6d9f5;
+}
+
+.ornament:nth-child(3n) .camera {
+  background: #d8e2d0;
+}
+
+.ornament:hover .camera {
+  box-shadow: 0 0 15px #b99bdc;
+}
+
+.instruction {
+  color: #a58caa;
+  font-size: 13px;
+  margin-top: 0;
+}
+
+/* =================================
+   LETTER MODAL
+================================= */
+
+.modal {
+  position: fixed;
+  inset: 0;
+  background: #3c394d88;
+  z-index: 20;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 20px;
+  backdrop-filter: blur(5px);
+}
+
+.letter {
+  position: relative;
+  width: min(100%, 450px);
+  max-height: 85vh;
+
+  background: #fffaff;
+  border-radius: 18px;
+  padding: 40px 30px;
+
+  box-shadow: 0 20px 60px #0002;
+  animation: appear .35s ease;
+  text-align: center;
+
+  /* Cho phép cuộn khi lời chúc quá dài */
+  overflow-y: auto;
+  overflow-x: hidden;
+  overscroll-behavior: contain;
+}
+
+@keyframes appear {
+  from {
+    transform: translateY(25px) scale(.9);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+.letter .heart {
+  font-size: 35px;
+  margin-bottom: 12px;
+  color: #b99bdc;
+}
+
+.letter h2 {
+  font-family: 'Playfair Display', serif;
+  color: #8063a5;
+  font-size: 27px;
+  margin-bottom: 20px;
+}
+
+.letter p {
+  line-height: 1.9;
+  font-size: 15px;
+  color: #62566d;
+
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+  word-break: normal;
+
+  text-align: left;
+}
+
+.sender {
+  color: #9875bd;
+  font-weight: 700;
+  margin-top: 25px;
+}
+
+.close {
+  position: absolute;
+  top: 12px;
+  right: 18px;
+
+  border: none;
+  background: none;
+
+  color: #9875bd;
+  font-size: 27px;
+  cursor: pointer;
+}
+
+.footer {
+  color: #aa97b4;
+  font-size: 12px;
+  line-height: 1.8;
+  margin-top: 35px;
+  padding: 0 15px;
+}
+
+/* =================================
+   RESPONSIVE
+================================= */
+
+@media(max-width: 600px) {
+  .tree-container {
+    transform: scale(.85);
+    transform-origin: top center;
+    margin-bottom: -95px;
+  }
+
+  .letter {
+    padding: 35px 22px;
+  }
+}
+
+@media(max-width: 380px) {
+  .tree-container {
+    transform: scale(.70);
+    margin-bottom: -175px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="background"></div>
+
+<!-- DECORATIVE SPARKLES -->
+
+<div class="sparkle" style="top:12%;left:12%">✦</div>
+<div class="sparkle" style="top:25%;right:12%">✧</div>
+<div class="sparkle" style="top:70%;left:8%">✧</div>
+<div class="sparkle" style="top:80%;right:10%">✦</div>
+<div class="sparkle" style="top:45%;left:5%">✧</div>
+<div class="sparkle" style="top:55%;right:5%">✦</div>
+
+
+<!-- ==================================
+     SCREEN 1: THE GIFT
+=================================== -->
+
+<section class="screen" id="giftScreen">
+
+  <div class="small-title">
+    A SPECIAL DAY FOR CHỊ PHÍ PHƯƠNG ANH
+  </div>
+
+  <h1>Happy Birthday!</h1>
+
+  <p class="subtitle">
+    Gửi đến chị Phí Phương Anh – Trưởng Ban Thông tin - Tuyên truyền<br>
+    Chúng em xin gửi đến chị một món quà nhỏ.
+  </p>
+
+  <div class="gift-area" id="gift" onclick="openGift()">
+    <div class="gift-box"></div>
+    <div class="gift-lid"></div>
+    <div class="bow"></div>
+  </div>
+
+  <p class="open-text">
+    ♡ Nhấn để mở quà ♡
+  </p>
+
+  <div class="footer">
+    MADE WITH LOVE BY BThT Gen 21 + Gen 22<br>
+  </div>
+
+</section>
+
+
+<!-- ==================================
+     SCREEN 2: THE WISHING TREE
+=================================== -->
+
+<section class="screen hidden" id="treeScreen">
+
+  <div class="tree-heading">
+
+    <div class="small-title">
+      A TREE FULL OF LOVE
+    </div>
+
+    <h1>The Wishing Tree</h1>
+
+    <p>
+      <br>
+      Mỗi chiếc máy ảnh nhỏ đều lưu giữ một điều đặc biệt dành cho chị!
+    </p>
+
+  </div>
+
+  <div class="tree-container">
+
+    <div class="star">★</div>
+
+    <div class="tree"></div>
+
+    <div class="trunk"></div>
+
+    <div class="wishes-layer" id="wishesLayer"></div>
+
+  </div>
+
+  <p class="instruction">
+    ♡ Chạm vào từng chiếc máy ảnh để mở lời chúc ♡
+  </p>
+
+  <div class="footer">
+    HAPPY BIRTHDAY, CHỊ PHÍ PHƯƠNG ANH!<br>
+
+  </div>
+
+</section>
+
+
+<!-- ==================================
+     SCREEN 3: WISH LETTER
+=================================== -->
+
+<div class="modal hidden" id="modal" onclick="closeOutside(event)">
+
+  <div class="letter">
+
+    <button class="close" onclick="closeLetter()">×</button>
+
+    <div class="heart">♡</div>
+
+    <div class="small-title">
+      A LITTLE WISH FOR YOU
+    </div>
+
+    <h2 id="letterName">Dear chị Phí Phương Anh,</h2>
+
+    <p id="letterContent"></p>
+
+    <div class="sender" id="letterSender"></div>
+
+  </div>
+
+</div>
+
+
+<script>
+
+// ========================================
+// 1. DANH SÁCH 42 LỜI CHÚC
+// ĐIỀN TÊN VÀ NỘI DUNG TẠI ĐÂY
+// ========================================
+
+
+const wishes = [
+  {
+    name: "Đào Tuấn Biên",
+    message: `Phí (hay còn gọi là Chá): là một tên gọi chỉ người, đồng nghĩa với người quan trọng nhất Ban Thông tin.
+
+🎉 Chúc mừng Phí đã chính thức đạt được cột mốc 20 tuổi của đời người một cách thành công mỹ mãn! Mong Phí luôn luôn vui vẻ, xinh đẹp, mạnh khỏe, thành công, bình an và may mắn nhé. Hãy nhớ rằng dù có đang ở đâu hay đang phải gặp khó khăn gì, phía sau lưng Phí sẽ luôn có 3 đứa Xoài, Vũ, Biên và 18 đứa trẻ con đang ủng hộ nhaaa. HPBD 🔥🔥`
+  },
+  {
+    name: "Vũ Thị Phương Anh",
+    message: `Phí Phương Anh, ck thắng rồi đó, NHƯNG VK CHƯA BAO H THUA.
+dạ có thua trước vẻ đẹp của ck ạ 🩷🥰😍 Ngày sinh nhật của Phí - chá / teammate CTV g20 / mem-mate g20/ BĐH-mate / soulmate / song sinh khác cha mẹ / một nửa não còn lại của Vũ, chúc Phí iu luôn THẬT MẠNH KHOẺ (dất quan trọn), luôn hạnh phúc và toả sáng trên bất cứ con đường nào mình lựa chọn nhé ⭐️ Cảm ơn Phí nhiều thật nhiều vì đã luôn là Phí Phương Anh, là người t rất rất tin tưởng, đã luôn ở đó cùng BThT, cùng Vũ Xoài Bo vượt qua nắng qua mưa đến ngày hôm nay và mãi sau này 💜💜💜 Sa rang hê, HLEWIN, CHUYỂN GIAO MÌNH COME OUT NHÉ CK 💜🏳️‍🌈 (vẫn còn văn hãy đón chờ Page Chuyện nhà)`
+  },
+  {
+    name: "Đinh Hoài Anh",
+    message: `(H)appy birthday, dear Phí! 🎂 Wishing
+(L)ots of success, good health and unforgettable memories in your new age 💗 and
+(E)verything you wish for will come true. 🙌
+
+(H) 好事连连，心想事成！
+(L) 乐在其中，天天开心！
+(E) 恩爱幸福，永远快乐！
+
+🎁 (F) FELIZ CUMPLEAÑOS 🎁 (I) Infinita felicidad y mucho amor 🎁
+
+💜 Chúc Phí tuổi 20 rực rỡ, hạnh phúc và gặp thật nhiều may mắn. Hi vọng mọi điều tốt đẹp nhất sẽ đến với cậu, hãy luôn giữ nụ cười trên môi và làm được tất cả những điều mình mong muốn nhé!!!`
+  },
+  {
+    name: "Vũ Ngọc Anh",
+    message: `Nhân dịp sinh nhật chị Trưởng ban, em gái Ngọc Anh xin gửi lời chúc chân thành từ tận sâu đáy lòng này. Em chúc chị tuổi mới không phí hoài thanh xuân, chẳng phí hoài nhan sắc và tiền vào ào ào không bao giờ phí đồng nào ạ. Sa rang hê zô ộp pa haha 😘🎉🎂🥳🎊`
+  },
+  {
+    name: "Mai Kiều Anh",
+    message: `tại sao k nên để chị Phí làm core tài chính
+vì sẽ thành phí tiền
+
+Nhân ngày sinh nhật em, em xin chúc chị tuổi mới dồi dào sức khỏe, vạn sự bình an, tiền vào như nước sông Đà tiền ra nhỏ giọt như cà phê phin. Em rất biết ơn chị vì khoảng thời gian qua đã đồng hành cùng ban bê tha ci ne ma, cùng c Vũ c Xoài a Biên dẫn dắt 18 đứa em qua muôn vàn gian khó. Em kbt ns ji hơn ngoài ns e iu c lms kkk`
+  },
+  {
+    name: "Phan Thảo Chi",
+    message: `Phía trước là tuổi mới với thật nhiều trải nghiệm hay ho nhé chị
+Hôm nào cũng ăn ngon, ngủ kỹ, giữ sức khỏe khì khì
+Ít thức khuya túc trực ở Discord chị nhé
+Phải luôn giữ sự tự tin và năng lượng tích cực như bây giờ chị ạ
+Học hành hay công việc đều trôi chảy, mượt mà
+Ước gì được nấy, mấy dự định chị đang ấp ủ sớm thành công hết
+Ơi một tiếng là em có mặt liền nha ( hoặc ko)
+Nhiều niềm vui, nhiều tiền và đi được nhiều nơi chị thích
+Gặp toàn người tử tế với những chuyện dễ thương
+An tâm tận hưởng trọn vẹn từng ngày
+Năm tuổi mới thật rực rỡ và đáng nhớ
+Happy Birthday chị Phí Phương Anhhhhhhh!`
+  },
+  {
+    name: "Nguyễn Hà Thanh Hằng",
+    message: `À nhon ha sê ô ai em Gumayusi 🐻kkkkkk nhân ngày sinh nhật chị Phí (PA), em chúc chị sếp có tuổi đôi mươi rực rỡ, kì nào cũng ẵm học bổng, lương tăng vèo vèo để đãi bọn em Haidilao =)))))) Cảm ơn chị Phí bí thư vì một nhiệm kì cùng ban bê tha thật vui và ko để lại vụn 💗✨ im so proud of u, 我姐姐 😘`
+  },
+  {
+    name: "Nguyễn Đình Huy",
+    message: `Hay nhỉ vì hôm nay sinh nhật chị PHÍ PHƯƠNG ANH ❤️‍🔥❤️‍🔥❤️‍🔥❤️‍🔥💜💜💜💜. Nhân dịp ngày trọng đại, em xin chúc chị tuổi mới rực rỡ, hạnh phúc và bùng nổ yêu thương 🍬 Chúc chị luôn chinh phục được mọi nẻo đường mình đi qua khi học bổng chỉ là bare minimum và tiền tài là vào như nước 🏳️‍🌈 Thank you for making BThT's gen21 nhiệm kì 2526 thật rực rỡ`
+  },
+  {
+    name: "Trần Anh Kiệt",
+    message: `Good morning chị yêu của em! Chà, chờ mãi cuối cùng cũng đã đến ngày sinh nhật của chị rồi, nhân dịp này em cũng có đôi lời chúc muốn gửi đến chị ạ. Chúc mừng sinh nhật chị! Chúc chị sẽ luôn xinh đẹp, vui vẻ lạc quan yêu đời, luôn hạnh phúc và đạt được nhiều thành công trong công việc và trong cuộc sống nhé chị! Em cũng muốn gửi lời cảm ơn đến chị nữa, người vừa là mentor của em, vừa là Trưởng ban Thông tin, nhưng mà em nghĩ những lời đó nên để dành cho lúc chuyển giao. Em yêu quý và ngưỡng mộ chị nhiều lắm, một lần nữa em xin chúc mừng sinh nhật chị nhé! And in case I don't see ya, good afternoon, good evening and good night!`
+  },
+  {
+    name: "Hoàng Minh Khang",
+    message: `Em xin xin xin chào chào chào chị chị chị Phí ạa. Chị có biết Kim cương sở hữu độ cứng tốt nhất trong các loại đá quý, đạt mức 10 trên thang Mohs. Ngoài ra, kim cương còn có độ chiết suất ánh sáng cao để tạo ra độ lấp lánh độc đáo. Tuy nhiên, dù là đá quý có độ cứng hàng đầu, do cấu trúc tinh thể lập phương nên kim cương có độ giòn cao và không có khả năng chống chịu các lực mạnh. Khi phân tích công thức hóa học của kim cương, ta dễ dàng thấy được kim cương là khoáng vật có độ bền tốt, trong điều kiện nhiệt độ thường, hoàn toàn trơ với axit và kiềm. Tuy nhiên, ở những nơi có điều kiện nhiệt độ cao, kim cương có thể bị ăn mòn, cháy trong luồng oxy hoặc graphit hóa.
+
+Vậy nên em chúc chị Phí Phương Anh tuổi mới sẽ tràn đầy niềm vui, có thật nhiều sức khỏe và mọi dự định, mọi cố gắng của chị đều sẽ hóa "Kim cương" để tỏa sáng rực rỡ nhée. Em Khang xin cảm ơn chị trong một nhiệm kì vừa qua đã luôn đồng hành, bảo vệ và che chở cho bọn em, chị đã rất vất vả rồi, em thương anh chị và tự hào về anh chị nhiều lắm ạaa.`
+  },
+  {
+    name: "Trần Khánh Linh",
+    message: `c Phí iu <3333 luôn là người c nói với tốc độ bàn thờ, đôi lúc căng thẳng nhưng chưa bao giờ dừng làm người chị caring, giỏi giang và hay cười của btht g21. c Phí bel tuổi mới, em Chồn chúc mọi điều tích cực sẽ đến với c, c Phí hãy lun hạnh phúc và giữ vững tinh thần bước tiếp trên những con đường của c nho. love you moah`
+  },
+  {
+    name: "Từ Thảo Linh",
+    message: `Dạ em xin phép chúc sinh nhật chị Phí ❤️ Nhân ngày mừng thọ chị, em xin thành kính dâng lên chị những lời chúc tốt đẹp và trân trọng nhất. Suốt bao năm tháng tảo tần, hy sinh và vun vén, chị đã dành trọn tâm sức để xây dựng nếp nhà đầm ấm và làm gương sáng cho các thế hệ sau. Hôm nay nhìn chị khỏe mạnh, bình an giữa vòng tay con cháu, lòng em vô cùng xúc động và biết ơn. Kính chúc chị sống lâu trăm tuổi, phúc như Đông Hải, thọ tỷ Nam Sơn, thân tâm an lạc, ăn ngon ngủ sâu, ngày ngày vui vầy cùng con đàn cháu đống, để gia đình mình mãi có bóng cây rợp mát che chở và gắn kết muôn đời ❤️`
+  },
+  {
+    name: "Nguyễn An Ngọc Minh",
+    message: `hello my beloved mentor
+
+chẳng thích nói nhiều lắm tại cũng phải nhìn chị tầm 1 năm r ấy 🙄 dù thực ra chẳng bao giờ đi ăn hay nói chuyện gì với mem mấy nhưng em biết chị luôn lo lắng và quan tâm tới các em của chị (cay phết o đùa) thôi gì thì gì nói thật thì em rất may mắn khi có chị làm mentor kiêm trưởng ban luôn, vì em nghĩ nếu không phải chị thì chưa chắc nhiệm kì năm nay của btht đã thành công đến thế
+
+tuổi mới chúc phí thông tin nâng hạng lên thành phí bí thư, làm việc ít mà tiền về vẫn nhiều, quay lại với nyc, được sinh viên 36 tốt và luôn khoẻ mạnh vui cười hạnh phúc hơn bây giờ nữa nha!! cảm ơn chị đã luôn là chị của em wi`
+  },
+  {
+    name: "Bùi Ngọc Trà My",
+    message: `em My Xing hôm nay mạo muội được gửi đôi lời chúc sinh nhật đến chị Phí Thông Tin đẳng cấp nhất thế giới trưởng ban của các trưởng ban (dù chị lâu lâu diss em nhưng em biết đó là những tình cảm chân thật đến từ tận đáy lòng). Nhân ngày sinh thần chiệu y, nguyện ông trời thiên vị chị thêm vài phần, để chị cả đời bình an, vui vẻ, không lo không nghĩ, mãi mãi được yêu thương và chiều chuộng. Mong chị năm tháng vô ưu, tiền đồ tựa gấm, nhân sinh rực rỡ! Happy sinh nhật chị Phíiii`
+  },
+  {
+    name: "Nguyễn Hoàng Duyên Nhi",
+    message: `Xin chào chao xin xin mừng chúc vui sinh nhật người chị tài năng, rỏi rang, tuyệt đẳng - Phí Phương Anh của emmmmm 💗💗💗. Chúc chị tuổi mới luôn sáng tỏa, bùng nổ, nhiệt huyết hơn hơn hơn nữa, kiếm thật nhiều tiền để Team 2 sẽ được bữa bao đánh lẻ chăng? Cảm ơn người chị trưởng ban vì một nhiệm kỳ thật đáng nhớ với em ⭐`
+  },
+  {
+    name: "Nguyễn Thị Mai Phương",
+    message: `Alo alo, ai đấy? Xin xin chào chị Phí Phương Anh - người chị đáng (iu?), trưởng ban tâm huyết của Ban Thông Tinnn! Chẳng cần check ib cũng biết hôm nay là sinh nhật chị 😎. Ngày chị chính thức bước sang tuổi đôi mươi rực rỡ, bùng nổ năng lượng và… chuẩn bị "bủa bao đành lê chảng" cho đàn em-))). Nói vui v thui, nhân dịp c Phí đến ngưỡng cửa U30 em Rán xin kính chúc chị trẻ mãi không già, tuyệt đỉnh vô đối, ẵm toàn điểm A, giữ mãi sự tự tin, và luôn vui vẻ, bình an bên những người mà chị yêu quý. Em không biết nói gì chỉ biết cám ơn chịii thật nhiều, cám ơn chị đã vì chúng em, vì Ban Thông Tin mà cố gắng suốt thời gian qua, cám ơn chị đã đứng lên để bảo vệ bọn em 🥹. Tiện thể em cũng cảm ơn c Vũ, a Biên và c Xoài đã đồng hành và dẫn dắt bọn em trong suốt nhiệm kỳ vừa rồi. Em rất yêuuu và tự hào về 4 anh chịii💗💗💗💗`
+  },
+  {
+    name: "Nguyễn Thị Minh Phương",
+    message: `Hạp piii bớt đây maiii chị phí bí thư 🎂🥳🎊🎉 cảm ơn chị vì suốt thời gian qua đã đồng hành, dẫn dắt và chỉ bảo chúng em rất nhìu ạ. Dù có những lúc chúng em còn nhìu thíu xót, chưa hoàn thành công việc được như ý nhưng chị luôn tận tình chỉ bảo, và support tinh thần bọn em rất nhìu, đặc biệt là trong fcd ạ 🥺 Cảm ơn vì ngày đó chị đã quyết định lên bdh để hnay chúng em có chị phí trưởng ban đáng iu như nàyyyyy. Bước sang tuổi mới, em chúc mọi dự định của chị đều sẽ thành công tốt đẹp, con đường phía trước sẽ trải hoa và ngập tràn hạnh phúc ạaaa (sến quá hihi)`
+  },
+  {
+    name: "Nguyễn Tôn Quyên",
+    message: `Dạ Úc đây ạ. Nhân dịp ngày 30/11/2026 sinh nhật U30 của chị trưởng BThT của nhiệm kỳ em. Em xin chúc chị Phí Phương Anh vẫn giữ GPA kinh khủng là cao, luôn luôn tự tin vào bản thân và vui vẻ mỗi ngày. Sống hết mình mỗi ngày trong quá khứ, tương lai và đặc biệt là hiện tại. Có lý do vì sao người ta gọi hiện tại là the "present" trong tiếng anh mà. Như quà tặng này chúng em tặng cho chị ạ!`
+  },
+  {
+    name: "Đào Khánh Quỳnh",
+    message: `Heloo c Phí Phí!!! 🎉🥳🎂 Nhân dịp chị cán mốc U30 cùng những người to lớn khác trong Bin Thô Tan, người em xinh xắn dễ thương của chị (em Đào) xin được chúc chị sẽ có một tuổi đôi mươi đẳng cấp, bùng nổ và đáng nhớ hơn cả chị bây giờ nhé ạ ❤️‍🔥🔥. Em chúc chị luôn nhìu sức khỏe, niềm vui, deadline thì cứ vơi còn học bổng thì cứ về hihi 😋. Cảm ơn chị vì đã là một người chị kiên nhẫn, nhiệt huyết với bọn trẻ con (trẻ trâu) Thôn Tin và luôn ở bên cạnh đồng hành cùng chúng iem trong suốt khoảng thời gian vừa rồi và khiến nhiệm kì của chúng mình trở nên thật bùng lổ 🫪👻. Iu c nhìu lắm hí hí my fav trưởng ban 💜💜💜`
+  },
+  {
+    name: "Nguyễn Minh Trang",
+    message: `Hello heli chị Phí Thôn Tinnn. Nhân ngày người chị của tôi bước đến đầu 2, em chúc chị sẽ có tuổi đôi mươi tràn đầy niềm vui, học bổng rinh đầy tay, luôn thật hạnh phúc và sẽ luôn luôn thành công trong con đường phía trước của mình ạ! 💗💗💗
+
+Cảm ơn chị trong suốt một năm đã luôn đồng hành, hỗ trợ và bảo vệ tụi em trước những bão giông trong hành trình vừa qua ~~ Em thực sự thương chị nhiều lắm sau khi nghe những gì anh chị đã làm để cho tụi em có một nhiệm kì thật vui vẻ và thành công mà không thiệt thòi bất kì một cái gì hết huhuhu so proud of you my sis 😭😭😭. WE LOVE YOU SMMMMM 💖💖💖💜💜💜`
+  },
+  {
+    name: "Phạm Minh Trung",
+    message: `Its me Minh Trung đây ạaa. Em chào chào chào chị chị chị chị Phí bá khí, chị Phí Thông tin, chị Phí Bứ thi orrrrr whatever📸📸📸📸📸. Vậy là người chị cả của lũ trẻ con Bê tha hát tê đã đột ngột bước qua tuổi 19 để đến với tuổi 20 bất ngờ và màu sắc✨✨✨✨✨. Cảm ơn người chị đã luôn dìu dắt chúng em qua mọi sự kiện, cảm ơn chị vì đã luôn ở bên cạnh giúp đỡ hỗ trợ và quan tâm đến những người em smol smol (trừ Kiệt k bé lắm), và vô cùng biết ơn vì chị cùng chị Xòi anh Biên chị Vũ đã góp phần tạo nên 1 nhiệm kì bùng nổ không thể nào quên đối với em và cả Ban. I LUV DIU CHỊ PHÍIIII💘💘💘💘💘`
+  },
+  {
+    name: "Bùi Nhật Minh Anh",
+    message: `Em Manh chào chị Phí ạ 💞💞🎉🎉 Ngay từ ngày phỏng vấn ở vòng 2 cho đến tận vòng cuối em đều có may mắn gặp chị. Lần đầu em ấn tượng về chị có lẽ là có 1 điều gì quen thuộc mà em cũng chẳng rõ là gì nữa. Chỉ là em thấy rất quen và cũng như rất thoải mái ạaa 😓💞 Cho đến vòng cuối thì em được tâm sự cùng các chị. Em Manh vui lắm khi chị lắng nghe và em cảm nhận thấy chị Phí không chỉ làm việc nghiêm túc mà còn quan tâm, đồng cảm với chúng em nữa. Em chân thành cảm ơn chị đã trao cho em cơ hội, nhưng cũng cảm ơn vì chị đã trò chuyện và đưa ra cho em nhiều lời động viên khiến em tự tin hơn. Em chúc chị Phí Phương Anh của gia đình Thông tin thật thật hạnh phúc và luôn tươi cười nhéee 💞💞💞 các em luôn mến chị thật nhiều`
+  },
+  {
+    name: "Cấn Hoàng Anh",
+    message: `Em Cấn xin mến chào chị Phí iu ạaaa🥹💜 Nhân ngày sinh nhật chị, em Cấn xin chúc chị Phí có một ngày thật tuyệt vời, hạnh phúc bên gia đình và bạn bè ạ !!!! Tuổi mới mong chị luôn vui vẻ, xinh đẹp và luôn giữ nụ cười trên môi chị nhéeee💖💖💖💖💖💖 Dù chị em mình vẫn chưa có nhiều cơ hội trò chuyện với nhau nhưng em mong rằng tới đây em, chị và tất cả các anh chị trong Ban sẽ tạo được nhiều kỷ niệm đáng nhớ với nhau ạaa💖💖💖💖☹️💞 Em yêu chị nhìu lấm!!! Happy birthday 💖💖💖💖 Joyeux anniversaire💖💖💖 ¡Feliz cumpleaños💖💖💖 Otanjoubi omedetou gozaimasu 💖💖💖💖💖💖 ✨✨🎂🎂🎂🎂🎂🎂🎂🎂🎂🎂🎂🎂🎂🎂`
+  },
+  {
+    name: "Nguyễn Hiền Anh",
+    message: `Em Hiền Anh chào chị Phí ạaaa 💞💞 Nhân dịp sinh nhật chị, em chúc chị tuổi mới sẽ luôn thật nhiều niềm vui, sức khỏe, giữ mãi nguồn năng lượng tích cực và nhiệt huyết của mình, đồng thời gặt hái thêm thật nhiều thành công trên những hành trình sắp tới nhé ạ!!
+
+Dù chưa có quá nhiều cơ hội được làm việc và đồng hành cùng chị, nhưng qua những lần gặp gỡ và trò chuyện, chị luôn để lại trong em một ấn tượng rất đặc biệt. Em cảm nhận được ở chị không chỉ là sự trách nhiệm, chỉn chu trong công việc mà còn là sự gần gũi, chân thành và quan tâm đến mọi người xung quanh nữa ạ. Em đặc biệt cảm ơn chị vì đã luôn dành thời gian lắng nghe, chia sẻ và tiếp thêm cho chúng em thật nhiều động lực. Có lẽ chính những điều nhỏ bé ấy đã khiến em thêm yêu và trân trọng gia đình Thông tin của mình hơn rất nhiều í ạ hihi.
+
+Tuổi mới, em chúc chị Phí sẽ luôn tự tin, bản lĩnh, được làm những điều mình yêu thích và gặp thật nhiều người thương quý trên chặng đường phía trước. Mong rằng chị sẽ luôn giữ được nụ cười thật tươi và nguồn năng lượng rực rỡ mà chúng em vẫn luôn ấn tượng ở chị. Happy birthday chị Phí Phương Anh ạaaa, chúng em luôn yêu quý và ủng hộ chị thật nhiều!! 💗🎂🎉`
+  },
+  {
+    name: "Trần Hà Anh",
+    message: `"Nhân ngày sinh nhật chị, em chúc chị tuổi mới mãi bùng nổ, đẳng cấp, luôn gặp được may mắn trong những hành trình sắp tới và gắt hái được nhiều thành công aaaaa. Ban đầu khi chưa là một mảnh ghép của Ban, tình yêu của em đối với Ban mình đúng là có ở đó, nhưng nó chưa thực sự được nở rộ í ạ (nhất là trước khi được phỏng vấn bởi chị Phí ạ hihi). Em đã expect buổi phỏng vấn hôm đó sẽ rất là căng thẳng như những buổi phỏng vấn clb ở hồi cấp 3 và chỉ mang một tinh thần là ""được thì được hong thì thui"". Nhưng mà chị Phí thực sự đã làm em bất ngờ vì năng lượng siêu tích cực của chị luôn í ạ!! Sự hiện diện của chị và cách chị present bản thân khiến em không bị áp lực mà cảm thấy thoải mái khi chia sẻ những kinh nghiệm của mình aaa. Khôm biết sao, nhưng buổi phỏng vấn hôm đó đã làm em nhiệt huyết với quyết định của mình hơn rất là nhiều (là all in đoàn í ạ hih) và chị cũng đã inspire em siêu nhiều để cố gắng trở thành một thành viên trong Ban mình ậ. Em iu và cảm ơn chị Phí rất nhiều aaaa <33333 Tụi em sẽ luôn ở đây support chị aa"`
+  },
+  {
+    name: "Vũ Phương Anh",
+    message: `Em panh chúc mừng sinh nhật chị Phí ạaaa 💗💗 Dù mới có cơ hội gặp chị qua hai vòng phỏng vấn nma mỗi lần được phỏng vấn với chị em luon có một cảm giác siêu siêu gần gũi và em rất trân trọng những lời động viên và sự lắng nghe của chị trong buổi phỏng vấn cuối, vì nó khiến em có thêm rất nhiều tự tin ạ 🥺 Chúc chị tuổi 20 thật rực rỡ, luôn hạnh phúc, xinh đẹp và gặp thật nhiều điều vui vẻee. Mong chị sẽ có nhiều trải nghiệm đáng nhớ, luôn được yêu thương và có đủ dũng khí để chinh phục mọi điều mình mong muốn. Hy vọng em sẽ còn được gặp và đồng hành cùng chị thật lâu nữa ạaa 💞`
+  },
+  {
+    name: "Nguyễn Thị Mai Hiên",
+    message: `Hí loo chị Phíii. Em là Mai Hiên đây ạ. Lời đầu tiên em xin phép được gửi lời chúc mừng sinh nhật to bự tới sếp Phí của emm. Chúc chị tuổi mới sẽ gặt hái được nhiều thành công, ngày càng xinh đẹp, nhiều tiền và hạnh phúc ạ. Em cảm ơn chị vì đã lun quan tâm và yêu thương bọn em, nhất là những đứa trẻ con con G22 mới bước vào đại gia đình FYU. Thứ đọng lại nhiều nhất trong em về chị trong suốt khoảng thời gian vừa qua là khả năng nói siêu nhanh, siêu liên tục không cần khoảng nghỉ, giống cái máy bắn chữ luôn ý. Òm em cũm hăm bic nói gì nữa nhưng mà em quý chị nhìu lắm. Chúc chị có một ngày sinh nhật thật vui vẻ và trọn vẹn nhé ạaaa. Gia đình BThT yêu c nhìuuu`
+  },
+  {
+    name: "Nguyễn Mai Hương",
+    message: `Em mhuong chào chị Phíii ạ. Đầu tiên em xin gửi lời chúc mừng thật to bự tới người sếp đáng yêu của tụi em. Chúc chị một tuổi mới tràn đầy năng lượng, mãi mãi xinh đẹp, thành công, nhiều lộc nhiều tài, ngày càng đáng yêu và đặc biệt là phải luôn luôn hạnh phúc. Chị Phíii đã đồng hành cùng em từ vòng phỏng vấn cho đến khi em trở thành 1 phần bé nhỏ của đại gia đình BThT <3 Em cảm ơn chị rấc nhìu vì đã là chị của bọn em, là sếp, là người dẫn dắt em cũng như các anh chị và các bạn trong BThT. Em kbt nói gì hơn NHƯNG chị Phíii xứng đáng nhận được mọi tình yêu thương và sự ngưỡng mộ trên đời này và EM YÊU CHỊ PHÍ PHƯƠNG ANH RẤC NHÌU <333`
+  },
+  {
+    name: "Phạm Mai Hương",
+    message: `Em mương xin gửi lời chúc mừng sinh nhật tuổi 20 vẹn tròn đẹp xinh tới chị Phí yêu ạ.
+
+Chị Phí là người chị vô cùng đặc biệt khi đồng hành cùng em ngay từ vòng phòng vấn cho tới cuối cùng. Chị đã quan sát em rất kỹ lưỡng, support tinh thần cho em và luôn cho em cảm thấy thật an toàn và được lắng nghe. Chị Phí siêu đáng yêu khi cho em một chai nước suối lúc em than thở với chị về việc phải ngồi chờ những 3 tiếng đồng hồ mới được phỏng vấn (và nền bể, xong chị kiểu “ôi khổ thân em tôi). Chị Phí như hoa cỏ lau hoặc môn triết học marx lenin vậy, vừa hiền từ vừa cứng rắn, vừa trong trẻo vừa dày dặn.
+
+Em mương chúc chị Phí tuổi 20 thật rạng ngời, thật trọn vẹn. Chúc chị Phí lúc nào cũng tươi cười và hạnh phúc. Chúc chị luôn yêu và được yêu thật nhiều. Em mong là cả vũ trụ luôn lắng nghe, bao dung và ủng hộ chị trên con đường chị đã vững tin chọn lựa. Tụi em sẽ luôn ở đây và cổ vũ cho chị ạ.`
+  },
+  {
+    name: "Nguyễn Quốc Khánh",
+    message: `Em xin chào chị Phí ạaaaa
+
+Sinh nhật vui vẻ chị nheee ^^
+
+Em cảm thấy rất may mắn vì đã được chị phỏng vấn vào Ban thông tin, được đồng hành cùng chị Phí, một người chị trưởng ban, đầu tàu siêu đẳng cấp của BThT ạaa
+
+Em chúc chị sinh nhật tuổi 20 luôn xinh đẹp, hạnh phúc, luôn vui vẻ và có thật nhiều may mắn, thuận lợi trên con đường phía trước nhé`
+  },
+  {
+    name: "Nguyễn Thị Ngọc Khuê",
+    message: `Iem chào chị Phí ạaaaaaa, nhân dịp sinh nhạt to béo cụa chị Phí yêu, iem Sóc xin kinh chúc chị Phí lúc nào cũng luôn tươi trẻ, mạnh khoẻ!! Được đồng hành cùng chị, dù chỉ trong 1 thời gian không quá lâu nhưng mà em siêu ấn tượng với năng lượng của chịii, so iuuu. Chúc chị Phí luôn may mắn, tuyệt vời, bùng cháy trong con đường phía trước! Mãi iu chịiiiii ❤️‍🔥❤️‍🔥❤️‍🔥`
+  },
+  {
+    name: "Cao Ngọc Khánh Linh",
+    message: `cl xin được gửi lời chúc tuổi 20 thật đẳng cấp nhiều thành công nhiều may mắn đến với chị Phí ạ!! ấn tượng đầu của em về chị Phí là người rất quyết đoán và nghiêm túc trong công việc, tuy nhiên càng tiếp xúc (dù là những tương tác siêu nhỏ) em càng nhận thấy chị Phí còn rất rất có lòng quan tâm đến các thành viên và có nhiều phần đáng yêu 😭🫰 khi em vào họp muộn do đau bụng hay gặp mem gặp trục trặc, chị đều đặt việc hỏi thăm lên trước tiên và đưa lời động viên đến tụi em 🥹 chị cũng là người lift tinh thần của mọi người và biết giữ bầu không khí sao cho năng động nhất có thể, em rất ngưỡng mộ lun đó! chúc chị Phí có một tuổi 20 thật đầy ý nghĩa, thật nhiều sức khoẻ; chúc chị chân cứng đá mềm và mọi mong muốn đều có thể thành hiện thực nhaa`
+  },
+  {
+    name: "Nguyễn Khánh Linh",
+    message: `Em klinh xin được gửi lời chúc sức khỏe và lời chào trân trọng nhất đến chị Phí ạaa!!~ Em xin chúc chị Trưởng ban BThT gen 20 có một sinh nhật tuổi 20 siêu cấp to bự và bùng nổ ạ, chúc chị luôn luôn vui vẻ, tươi tắn, xinh xắn, suôn sẻ, phơi phới, tưng bừng, rộn ràng, dế thương nứaa 💗💗 Hihi nếu chị Phí khong biết thì chị Phí là người đã phỏng vấn em vòng 2 nên em siêu ấn tượng với CHỊ, chị thật là ĐÁNG YÊU Í, em vẫn nhớ ánh mắt lấp lánh kì vọng của chị khi chị hỏi em em có tò mò anh chị là ai không (nma lúc đấy em quá run để hỏi hihi, nhưng mà về nhà em đã stalk được rồi đấyy). Chị SIÊU THÂN THIỆN với bọn em hưc hưc em cảm động CỰC, team 3 đã cố bond với nhau (nma nhạt q) thì chị đã vào cứu rỗi bọn em~ Chị Phí thật là một người chị quan tâm bọn em dù khong được tiếp xúc nhiều mấy nhưng chị đã thuộc hết tên tụi em hihi, chị làm bọn em thấy thật sự thoải mái để chia sẻ và thể hiện cá tính ấyy!! Bọn em thích chị phết!!! Chúc chị có một tuổi 20 thật BÙNG NỔ và THÀNH CÔNG và THẬT NHIỀU SỨC KHỎE ạ 💗💗💗`
+  },
+  {
+    name: "Nguyễn Tuệ Linh",
+    message: `em chào c phí ạa 💝💝 nhân dịp c bước qua tuổi 20 🎂 cùng với ban thôn tin fyu, em tlonh kid gen 22 chúc c có một tuổi mới thật bùng nổ, hạnh phúc và luôn tràn ngập niềm vui ạ . mong rằng những điều đến với c trong năm nay đều là những điều thật may mắn và tốt đẹp ạa. gdinh icydead yêu c ✨❤️‍🔥`
+  },
+  {
+    name: "Vũ Hoàng Linh",
+    message: `bùm xì là bùm em hlv cin chào chị Phí ạaaa.
+em hlv xin trân trọng gửi lời chúc mừng sinh nhật cực to béo tới chị Trưởng BThT cinh đẹp, đáng iu, quyền lực và đẳng cấppp của đại gia đình Bê Tê Hắt Tê ạaaa. hì hì tuy mới có cơ hội trở thành một ghép chính thức của BThT chưa được bao lâu nhưng em lun mún dành choa chị một tình iêu siêu to bự ròi ạaaa. em cảm thấy rấc may mắn vì được đồng hành cùng chị Phí và được chứng kiến sự tận tâm chăm sóc của chị với đàn con thơ nì ạaaa. em hlv chúc chị tuổi mới chị sẽ được yêu thương thật nhìuu, luôn rạng rỡ, được làm những điều chị thít và có thật nhiều khoảnh khắc hạnh phúc ạaaaaa<333 chị cứ việc xinh đẹp và toả sáng, còn yêu thươn chị cứ để chúng em lo hahhahahhaa.
+
+em Linh vẫn còn văn!!! em xin chúc chị Phí 365 ngày đều là ngày đẹp trời, 24/7 giờ ngập tràn niềm vui, 100% hạnh phúc và 0% muộn phiền ạaa. HLV YÊU CHỊ PHÍ MỘT TÌNH YÊU TO BÉO KHỔNG LỒ BẰNG CẢ DIỆN TÍCH FTU CỘNG THÊM CẢ CS2,3 NỮAAAAA`
+  },
+  {
+    name: "Nguyễn Chi Mai",
+    message: `em chào chị Phí, em là cmai đây ạa. đầu tin em xin gửi lời chúc mừng sinh nhật tuổi 20 của chị phí ạ, chúc chị lun lun tươi trẻ, vui vẻ, yêu đời, xinh xắn, rạng rỡ, và ngày càng thành công trong học tập và sự nghiệp sau này ạ. thsu là khi biết chị phí cũng là cựu chu em cảm nhận được tình đồng hương lun í ạ =)))) kiẻu đang đúng lúc em đang luỵ c3 và tuyệt vọng ở đại học thì em gặp chị iuu. sau hôm pvan em đã bdau thấy uni life tươi sáng hơn chút chút và đặc biệt khi đỗ bê tê hát tê thì nó tuyệt zời hơn rất nhìuu ạ (kiểu em siu aim ban lun ó). mdu là hôm tổ chức em k có mặt được do chạy lịch kỉ yếu nm em mog là chị phí sẽ có một sinh nhật thật bất ngờ và đáng nhớ cùng với mọi người ạaa. em iu chị phí nhìu ạ <33`
+  },
+  {
+    name: "Trần Bảo Ngọc",
+    message: `Em chào chị Phíiiiu, em là bạn Bảo Ngọc nè 💖. Nhân dịp sinh nhật chị iu em xin phép hát tặng chị một bài. Hapi bớt đầy to you hapi bớt đầy to chị Phí BThT. Chúc chị Phí tuổi mới tiền vào như nước sông đà, tiền ra nhỏ giọt như cafe phin, sức khoẻ dồi dào an khang thịnh vượng đăng ký tín nào được tín đấy học môn nào điểm A môn đấy. Cuối cùng em xin chúc chị Phí mãi xinh đẹp tươi vui sẽ luôn là người chị lớn mà bọn em siêu ngưỡng mộ mãi iu chị Phíiii 💖💖💖`
+  },
+  {
+    name: "Nguyễn Phượng Hà My",
+    message: `Em Hmy chào chị Phí ạaa!!
+
+Hihi khôm biết chị còn nhớ không nhưng vào vòng 2 phỏng vấn, em đã được chị Phí phỏng vấn đó ạa🥹 Lúc đó em đã siêu lo lắng nhưng chị đã siêu thân thiện, supportive và khiến em cảm thấy chill và yên tâm hơn hẳnnnn💞 Sau khi có cơ hội được vào vòng CTV và còn có cơ hội trở thành một thành viên chính thức, em đã một lần nữa siêu ấn tượng với chị Phí với sự chỉn chu, nghiêm túc trong công việc và thật sự là một trưởng ban vô cùng đáng tin cậy ạaaa!! Vì vậy, em cảm thấy rất vui và biết ơn khi có được cơ hội được làm việc với một người dẫn dắt tuyệt vời như chị Phí ậ^^
+
+Nhân ngày sinh nhật chị, em chúc chị tuổi mới luôn vui vẻ, tiếp tục siêu xinh gái, gặp thật nhìu may mắn và tiếp tục là một người chị mà bọn em luôn luôn ngưỡng mộ ạaa!!💗💗💗 iu chị nhìuuuu`
+  },
+  {
+    name: "Vũ Ngọc Thảo My",
+    message: `Em Thảo My xin gửi lời chúc sinh nhật thật nhiều yêu thương đến chị Phí ạaaa!! 💗💗 Chúc chị tuổi 20 luôn xinh xắn, vui vẻ, rạng rỡ, mọi điều suôn sẻ và thật BÙNG NỔ, THÀNH CÔNG ạ!! Hihi, không biết chị có nhớ em không nhưng em vẫn nhớ hôm phỏng vấn vòng 2 em đã thú nhận thích Ban Mì Tôm hơn, vậy mà cuối cùng lại đỗ CTV Ban Thông tin vòng 3 =)))) Đến First Meeting, khi biết chị Phí là Trưởng ban, em đã nghĩ bụng: "Ôi thôi, lần này toang rồi chị ơiii" 😭 Thế mà thật may mắn khi em lại được chị tin tưởng và lựa chọn trở thành thành viên chính thức của Ban. Thú thật em vẫn luôn thắc mắc sao chị lại chọn em đỗ ạ =))) nhưng em thật sự rất biết ơn cơ hội và sự tin tưởng ấy. Mong rằng đại gia đình bê tê hắt tê mình sẽ thật vui vẻ và tạo nhiều kỉ niệm, đi bonding với nhau siu nhìuuu ạ!! Một lần nữa, chúc chị tuổi mới thật rực rỡ, nhiều sức khỏe, niềm vui và luôn giữ được nguồn năng lượng tích cực. Em My yêu quý chị Phí nhiềuuu 💗💗💗`
+  },
+  {
+    name: "Lã Thanh Phong",
+    message: `Em chào chị Phí ậ. Hihi dù chưa có quá nhiều cơ hội được học hỏi từ chị nhưng đối với em, ấn tượng từ đầu đến cuối về chị vẫn luôn là một người lead tổng, một đầu tàu vừa trách nhiệm vừa tình cảm của BThT. Tuổi 20 gõ cửa em chúc chị sẽ luôn được tự do làm những điều chị thích và thích những điều chị làm, luôn giỏi giang, xinh đẹp, nhiệt huyết như hiện tại và thật thành công nhé ạ!! Hpbd chị hihihihi🎉🎊`
+  },
+  {
+    name: "Nguyễn Quốc Phú",
+    message: `helu chị phíii ạaa, em chúc chị tuổi 20 thật rực rỡ, luôn xinhh đẹpppp và luôn toả sáng chị nhéeeee. 🎊🎊🎊tbh hôm fm em nhìn mặt chị nghiêm nghiêm nên em nghĩ ban mình sẽ căng thẳng lắm, nhưng sự thật thì k, ban mình siêu vui (vì có chị Phí dẫn dắt). anyways một lần nữa e chúc chị có một snhat siêu to béoo, nhận đc nhiều lời chúc cute cute từ mng và phải thật vui vẻ, thành công c nhéeee. 🎉🎉🎉🎉em hi vọng trg tgian sắp tới e sẽ có nh cơ hội để trò chuyện với chị hơnn và hc đc nhiềuuuuu từ c ạ. 💜💜💜💜💜💜`
+  },
+  {
+    name: "Nguyễn An Thy",
+    message: `hí lô chị Phíiii💜🧡🩷🩵 hmmm đệ xem chị có đoán đượt ai vít khôm nhớ>< EM CHÚC MỪNG SINH NHẬT CHỊ ẠAAAAA🎂🎂🥳🥳 Em chúc chị sẽ có tủi 20 thiệc rực rỡ, mạnh khỏe và sẽ đạt được tca aim của mình ạaa😚😚 c Phí vs em sẽ lun là một ng chị to bự và hự em thít chị lmsss ớ kkkkk!!! Từ vòng đầu pv choa tới vòng cuối, em lun được đồng hành vs chị và kiễu u là trừi, em cgiac đó là một vinh dự của emmm, và nhận được sự tin tưởng của chị, em phải cố gắng nhiều hơn nữa~~ trong 2 vòng pv, c Phí trong mắt em luôn là một ng trưởng ban, một ng chị có ánh mắt siêu mạnh mẽ (?) hmmm em cx kbt miêu tả s ln nma kiểu nhìn ánh mắt của chị, em cảm nhận được c sẽ là một ng siêu quyết đoán và kiểu thông minh, tự tin, biết mình muốn gì, đang làm gì và sẽ qtam làm dc điều mìn mún ớ, khá ngầu, khá sigma phết🤪🤪 hí em mong chị sẽ lunn nhận được điều tốt đẹp và xứng đánggg>< và chị sẽ đồng hành vs tụi em lâu lâu dài dài nhó EM YÊU CHỊ PHÍ<3`
+  }
+];
+
+
+
+// ========================================
+// 2. VỊ TRÍ 42 MÁY ẢNH TRÊN CÂY
+// TỌA ĐỘ ĐƯỢC TÍNH THEO TÂM MÁY ẢNH
+// ========================================
+
+const positions = [
+
+  // Tầng 1: 1 máy ảnh
+  [50, 13],
+
+  // Tầng 2: 2 máy ảnh
+  [44, 22],
+  [56, 22],
+
+  // Tầng 3: 4 máy ảnh
+  [38, 31],
+  [46, 31],
+  [54, 31],
+  [62, 31],
+
+  // Tầng 4: 5 máy ảnh
+  [34, 40],
+  [42, 40],
+  [50, 40],
+  [58, 40],
+  [66, 40],
+
+  // Tầng 5: 6 máy ảnh
+  [30, 49],
+  [38, 49],
+  [46, 49],
+  [54, 49],
+  [62, 49],
+  [70, 49],
+
+  // Tầng 6: 7 máy ảnh
+  [25, 58],
+  [33, 58],
+  [41, 58],
+  [50, 58],
+  [59, 58],
+  [67, 58],
+  [75, 58],
+
+  // Tầng 7: 8 máy ảnh
+  [21, 67],
+  [29, 67],
+  [37, 67],
+  [45, 67],
+  [55, 67],
+  [63, 67],
+  [71, 67],
+  [79, 67],
+
+  // Tầng 8: 9 máy ảnh
+  [16, 76],
+  [24.5, 76],
+  [33, 76],
+  [41.5, 76],
+  [50, 76],
+  [58.5, 76],
+  [67, 76],
+  [75.5, 76],
+  [84, 76]
+
+];
+
+
+// ========================================
+// 3. TẠO 42 MÁY ẢNH VÀ DÂY TREO
+// ========================================
+
+const layer = document.getElementById("wishesLayer");
+
+wishes.forEach((wish, index) => {
+
+  const ornament = document.createElement("div");
+
+  ornament.className = "ornament";
+
+  // Căn theo tâm máy ảnh
+  ornament.style.left = positions[index][0] + "%";
+  ornament.style.top = positions[index][1] + "%";
+
+  ornament.style.animationDelay =
+    (index * 0.08) + "s";
+
+  ornament.innerHTML = `
+    <div class="hook"></div>
+    <div class="string"></div>
+
+    <div class="camera">
+      <div class="camera-lens"></div>
+      <div class="camera-flash"></div>
+    </div>
+  `;
+
+  ornament.setAttribute(
+    "aria-label",
+    "Lời chúc số " + (index + 1)
+  );
+
+  ornament.onclick = () => showLetter(index);
+
+  layer.appendChild(ornament);
+
+});
+
+
+// ========================================
+// 4. HIỆU ỨNG MỞ HỘP QUÀ
+// ========================================
+
+function openGift() {
+
+  const gift = document.getElementById("gift");
+
+  gift.classList.add("gift-open");
+
+  setTimeout(() => {
+
+    document.getElementById("giftScreen")
+      .classList.add("hidden");
+
+    document.getElementById("treeScreen")
+      .classList.remove("hidden");
+
+    window.scrollTo(0, 0);
+
+  }, 650);
+
+}
+
+
+// ========================================
+// 5. HIỂN THỊ LỜI CHÚC
+// ========================================
+
+function showLetter(index) {
+
+  const wish = wishes[index];
+
+  document.getElementById("letterName").innerText =
+    "Dear chị Phương Anh,";
+
+  document.getElementById("letterContent").innerText =
+    wish.message;
+
+  document.getElementById("letterSender").innerText =
+    wish.name ? "With love, " + wish.name : "";
+
+  document.getElementById("modal")
+    .classList.remove("hidden");
+
+}
+
+
+// ========================================
+// 6. ĐÓNG THIỆP
+// ========================================
+
+function closeLetter() {
+
+  document.getElementById("modal")
+    .classList.add("hidden");
+
+}
+
+function closeOutside(event) {
+
+  if (event.target.id === "modal") {
+    closeLetter();
+  }
+
+}
+
+
+// ========================================
+// 7. NHẤN ESC ĐỂ ĐÓNG THIỆP
+// ========================================
+
+document.addEventListener("keydown", (event) => {
+
+  if (event.key === "Escape") {
+    closeLetter();
+  }
+
+});
+
+</script>
+
+</body>
+</html>
